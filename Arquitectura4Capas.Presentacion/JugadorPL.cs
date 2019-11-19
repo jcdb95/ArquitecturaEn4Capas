@@ -8,47 +8,23 @@ using Arquitectura4Capas.Negocio;
 
 namespace Arquitectura4Capas.Presentacion
 {
-	class Program
-	{
+    class Program
+    {
 
 
-		static void Main(string[] args)
-		{
-			/*
-            string nombre = string.Empty, apellido = string.Empty;
-            double fuerza, angulo;
+        static void Main(string[] args)
+        {
 
-            Console.WriteLine("Por favor ingrese su nombre:");
-            nombre = Console.ReadLine();
-
-            Console.WriteLine("Por favor ingrese su apellido:");
-            apellido = Console.ReadLine();
-
-            Console.WriteLine("Por favor ingrese su fuerza:");
-            fuerza = double.Parse(Console.ReadLine());
-
-            Console.WriteLine("Por favor ingrese un ángulo:");
-            angulo = double.Parse(Console.ReadLine());
-
-            Jugador j = new Jugador(nombre, apellido, fuerza, angulo);
-
-            Console.WriteLine("La distancia de tiro del jugador: " + j.Nombre + ", " + j.Apellido + " es " + j.Distancia.ToString() + " metros.");
-
-            double suma = Calculadora.Suma(j.Angulo, j.Fuerza);
-
-            // traer de servicio
-
-            Console.WriteLine("ingrese el id de jugador a traer: ");
-            int id = int.Parse(Console.ReadLine());
-            */
-			JugadorBLL servicio = new JugadorBLL();
+            JugadorBLL servicio = new JugadorBLL();
+            BitacoraBBL bitacora = new BitacoraBBL();
 
 
-
-			Jugador j2 = servicio.Get(883083);
-
-			Console.WriteLine("El jugador obtenido es: " + j2.Nombre);
-			Console.ReadKey();
-		}
-	}
+            // Jugador j2 = servicio.GetJugador(883083);
+            // Console.WriteLine("El jugador obtenido es: " + j2.Nombre);
+            Bitacora log = new Bitacora(883083, "Testing post method again v2", TipoConsultaEnum.CONSULTA_USUARIO);
+            string resultPost = bitacora.enviarPost(log);
+            Console.WriteLine(resultPost);
+            Console.ReadKey();
+        }
+    }
 }

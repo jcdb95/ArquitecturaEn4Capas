@@ -1,0 +1,9 @@
+.ddl
+.pdb
+.cache
+.dgspec.json
+.props
+.targets
+project.assets.json
+.txt
+.dll

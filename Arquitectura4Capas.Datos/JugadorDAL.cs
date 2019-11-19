@@ -10,24 +10,27 @@ using Arquitectura4Capas.Entidades;
 
 namespace Arquitectura4Capas.Datos
 {
-	public class JugadorDAL
-	{
+    public class JugadorDAL
+    {
 
-		public Jugador Get(int id)
-		{
-			string id_string = id.ToString();
-			string resultado = WebApiHelper.Get("http://uba-cai.azurewebsites.net/api/Usuarios/" + id_string);
-			Jugador j = MapearObjeto(resultado);
-			return j;
-		}
 
-		private Jugador MapearObjeto(string json)
-		{
-			MemoryStream stream1 = new MemoryStream(Encoding.UTF8.GetBytes(json));
-			DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Jugador));
-			Jugador lst = (Jugador)ser.ReadObject(stream1);
-			return lst;
-		}
+        public Jugador Get(int id)
+        {
+            string id_string = id.ToString();
+            // La url esta harcodeada por que no me lo levante del config 
+            string resultado = WebApiHelper.Get("http://uba-cai.azurewebsites.net/api/Usuarios/" + id_string);
+            Console.WriteLine(resultado);
+            Jugador j = MapearObjeto(resultado);
+            return j;
+        }
 
-	}
+        private Jugador MapearObjeto(string json)
+        {
+            MemoryStream stream1 = new MemoryStream(Encoding.UTF8.GetBytes(json));
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Jugador));
+            Jugador lst = (Jugador)ser.ReadObject(stream1);
+            return lst;
+        }
+
+    }
 }

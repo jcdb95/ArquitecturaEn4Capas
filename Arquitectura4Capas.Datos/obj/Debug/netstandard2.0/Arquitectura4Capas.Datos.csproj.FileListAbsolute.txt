@@ -1,0 +1,11 @@
+/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Datos/bin/Debug/netstandard2.0/Arquitectura4Capas.Datos.deps.json
+/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Datos/bin/Debug/netstandard2.0/Arquitectura4Capas.Datos.dll
+/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Datos/bin/Debug/netstandard2.0/Arquitectura4Capas.Datos.pdb
+/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Datos/obj/Debug/netstandard2.0/Arquitectura4Capas.Datos.csprojAssemblyReference.cache
+/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Datos/obj/Debug/netstandard2.0/Arquitectura4Capas.Datos.AssemblyInfoInputs.cache
+/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Datos/obj/Debug/netstandard2.0/Arquitectura4Capas.Datos.AssemblyInfo.cs
+/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Datos/obj/Debug/netstandard2.0/Arquitectura4Capas.Datos.dll
+/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Datos/obj/Debug/netstandard2.0/Arquitectura4Capas.Datos.pdb
+/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Datos/bin/Debug/netstandard2.0/Arquitectura4Capas.Entidades.dll
+/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Datos/bin/Debug/netstandard2.0/Arquitectura4Capas.Entidades.pdb
+/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Datos/obj/Debug/netstandard2.0/Arquitectura4Capas.Datos.csproj.CopyComplete

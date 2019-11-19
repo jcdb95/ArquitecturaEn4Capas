@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Arquitectura4Capas.Entidades\Arquitectura4Capas.Entidades.csproj" />
+    <ProjectReference Include="..\Arquitectura4Capas.Datos\Arquitectura4Capas.Datos.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>

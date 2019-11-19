@@ -1,0 +1,8 @@
+/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Entidades/bin/Debug/netstandard2.0/Arquitectura4Capas.Entidades.deps.json
+/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Entidades/bin/Debug/netstandard2.0/Arquitectura4Capas.Entidades.dll
+/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Entidades/bin/Debug/netstandard2.0/Arquitectura4Capas.Entidades.pdb
+/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Entidades/obj/Debug/netstandard2.0/Arquitectura4Capas.Entidades.csprojAssemblyReference.cache
+/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Entidades/obj/Debug/netstandard2.0/Arquitectura4Capas.Entidades.AssemblyInfoInputs.cache
+/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Entidades/obj/Debug/netstandard2.0/Arquitectura4Capas.Entidades.AssemblyInfo.cs
+/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Entidades/obj/Debug/netstandard2.0/Arquitectura4Capas.Entidades.dll
+/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Entidades/obj/Debug/netstandard2.0/Arquitectura4Capas.Entidades.pdb

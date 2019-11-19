@@ -1,0 +1,182 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Negocio/Arquitectura4Capas.Negocio.csproj": {}
+  },
+  "projects": {
+    "/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Datos/Arquitectura4Capas.Datos.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Datos/Arquitectura4Capas.Datos.csproj",
+        "projectName": "Arquitectura4Capas.Datos",
+        "projectPath": "/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Datos/Arquitectura4Capas.Datos.csproj",
+        "packagesPath": "/home/jc/.nuget/packages/",
+        "outputPath": "/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Datos/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jc/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Entidades/Arquitectura4Capas.Entidades.csproj": {
+                "projectPath": "/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Entidades/Arquitectura4Capas.Entidades.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Entidades/Arquitectura4Capas.Entidades.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Entidades/Arquitectura4Capas.Entidades.csproj",
+        "projectName": "Arquitectura4Capas.Entidades",
+        "projectPath": "/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Entidades/Arquitectura4Capas.Entidades.csproj",
+        "packagesPath": "/home/jc/.nuget/packages/",
+        "outputPath": "/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Entidades/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jc/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Negocio/Arquitectura4Capas.Negocio.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Negocio/Arquitectura4Capas.Negocio.csproj",
+        "projectName": "Arquitectura4Capas.Negocio",
+        "projectPath": "/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Negocio/Arquitectura4Capas.Negocio.csproj",
+        "packagesPath": "/home/jc/.nuget/packages/",
+        "outputPath": "/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Negocio/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jc/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Datos/Arquitectura4Capas.Datos.csproj": {
+                "projectPath": "/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Datos/Arquitectura4Capas.Datos.csproj"
+              },
+              "/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Entidades/Arquitectura4Capas.Entidades.csproj": {
+                "projectPath": "/home/jc/dev/FCE/cai/Arquitectura4Capas/Arquitectura4Capas.Entidades/Arquitectura4Capas.Entidades.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

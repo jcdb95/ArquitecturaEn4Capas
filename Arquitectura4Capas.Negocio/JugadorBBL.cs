@@ -11,12 +11,10 @@ namespace Arquitectura4Capas.Negocio
 {
     public class JugadorBLL
     {
-        private JugadorDAL mapper = new JugadorDAL();
-
-
-        public Jugador Get(int id)
+        private JugadorDAL mapperJugador = new JugadorDAL();
+        public Jugador GetJugador(int id)
         {
-            Jugador obj = mapper.Get(id);
+            Jugador obj = mapperJugador.Get(id);
             return obj;
         }
     }

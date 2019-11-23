@@ -11,11 +11,23 @@ namespace Arquitectura4Capas.Negocio
 {
     public class JugadorBLL
     {
-        private JugadorDAL mapperJugador = new JugadorDAL();
-        public Jugador GetJugador(int id)
+        JugadorDAL mapperJugador = new JugadorDAL();
+        // Get de jugador
+        public List<Jugador> GetJugador(int id)
         {
-            Jugador obj = mapperJugador.Get(id);
-            return obj;
+            List<Jugador> lst = mapperJugador.GetJugadores(id);
+            return lst;
+        }
+        //Post de jugador
+        public string SendJugador(Jugador j)
+        {
+            Console.WriteLine("Fue llamada la funcion SendJugador en Capa de Negocio");
+            return mapperJugador.AddJugador(j);
+        }
+        // Delete de
+        public void DeleteJugador(string idUsuario, string id)
+        {
+            mapperJugador.Delete(idUsuario, id);
         }
     }
 }

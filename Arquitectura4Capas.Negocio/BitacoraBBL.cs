@@ -10,7 +10,7 @@ namespace Arquitectura4Capas.Negocio
 {
     public class BitacoraBBL
     {
-        private BitacoraMapper mapperBitacora = new BitacoraMapper();
+        BitacoraMapper mapperBitacora = new BitacoraMapper();
 
         public string enviarPost(Bitacora bitacoraAEnviar)
         {

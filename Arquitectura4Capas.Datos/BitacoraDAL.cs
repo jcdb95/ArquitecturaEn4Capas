@@ -21,9 +21,9 @@ namespace Arquitectura4Capas.Datos
         private NameValueCollection MappearADiccionario(Bitacora bitacora)
         {
             NameValueCollection valores = new NameValueCollection();
-            valores["id"] = bitacora.codigoUsuario.ToString();
-            valores["descripcion"] = bitacora.descripcion;
-            valores["criticidad"] = bitacora.tipoConsulta.ToString();
+            valores["id"] = bitacora.CodigoUsuario.ToString();
+            valores["descripcion"] = bitacora.Descripcion;
+            valores["criticidad"] = bitacora.TipoConsulta.ToString();
             return valores;
         }
     }

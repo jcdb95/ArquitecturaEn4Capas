@@ -16,15 +16,17 @@ namespace Arquitectura4Capas.Presentacion
         {
 
             JugadorBLL servicio = new JugadorBLL();
-            BitacoraBBL bitacora = new BitacoraBBL();
+            // TODO: Agregar inputs para completar jugadores en consola
+            // TODO: La idea es hacer algo web con vue
+            // Jugador nuevoJugador = new Jugador(4, 883083, "Roberto", "Baggio", 7, 9);
+            // servicio.SendJugador(nuevoJugador);
+            List<Jugador> lst = servicio.GetJugador(883083);
+            foreach (var item in lst)
+            {
+                Console.WriteLine(item.Id);
+            }
 
 
-            // Jugador j2 = servicio.GetJugador(883083);
-            // Console.WriteLine("El jugador obtenido es: " + j2.Nombre);
-            Bitacora log = new Bitacora(883083, "Testing post method again v2", TipoConsultaEnum.CONSULTA_USUARIO);
-            string resultPost = bitacora.enviarPost(log);
-            Console.WriteLine(resultPost);
-            Console.ReadKey();
         }
     }
 }

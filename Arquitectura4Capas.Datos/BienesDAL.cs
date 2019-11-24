@@ -30,7 +30,7 @@ namespace Arquitectura4Capas.Datos
         {
             NameValueCollection parametros = MappearADiccionario(bien);
 
-            string result = WebApiHelper.Post("bienes/" + bien.IdJugador.ToString(), parametros);
+            string result = WebApiHelper.Post("http://uba-cai.azurewebsites.net/api/bienes/" + bien.IdJugador.ToString(), parametros);
 
             return result;
         }

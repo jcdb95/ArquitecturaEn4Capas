@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Arquitectura4Capas.Entidades
 {
-	public enum TipoConsultaEnum
-	{
-		CONSULTA_USUARIO = 1,
-		CONSULTA_JUGADOR,
-		ALTA_JUGADOR
+    public enum TipoConsultaEnum
+    {
+        Listar_jugadores = 1,
+        Crear_jugador,
+        Eliminar_jugador
 
-	}
+    }
 }

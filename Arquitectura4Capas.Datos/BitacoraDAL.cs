@@ -13,9 +13,16 @@ namespace Arquitectura4Capas.Datos
     {
         public string EnviarLog(Bitacora bitacora)
         {
-            NameValueCollection parametros = MappearADiccionario(bitacora);
-            string result = WebApiHelper.Post("http://uba-cai.azurewebsites.net/api/Bitacora", parametros);
-            return result;
+            try
+            {
+                NameValueCollection parametros = MappearADiccionario(bitacora);
+                string result = WebApiHelper.Post("http://uba-cai.azurewebsites.net/api/Bitacora", parametros);
+                return result;
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
         }
 
         private NameValueCollection MappearADiccionario(Bitacora bitacora)

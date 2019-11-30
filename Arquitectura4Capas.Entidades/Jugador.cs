@@ -38,7 +38,7 @@ namespace Arquitectura4Capas.Entidades
             _idUsuario = usuario;
             _nombre = nombre;
             _apellido = apellido;
-            if (fuerza > 0 && fuerza < 10)
+            if (fuerza > 0 && fuerza < 11)
             {
                 _fuerza = fuerza;
             }

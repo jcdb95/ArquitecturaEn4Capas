@@ -14,29 +14,59 @@ namespace Arquitectura4Capas.Datos
 
         public List<Jugador> GetJugadores(int idUsuario)
         {
-            string json2 = WebApiHelper.Get("http://uba-cai.azurewebsites.net/api/jugador/" + idUsuario.ToString()); // trae un texto en formato json de una web
-            List<Jugador> resultado = MapObj(json2);
-            return resultado;
+            try
+            {
+                string json2 = WebApiHelper.Get("http://uba-cai.azurewebsites.net/api/jugador/" + idUsuario.ToString()); // trae un texto en formato json de una web
+                List<Jugador> resultado = MapObj(json2);
+                return resultado;
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
         }
 
         private List<Jugador> MapObj(string json)
         {
-            MemoryStream stream1 = new MemoryStream(Encoding.UTF8.GetBytes(json));
-            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(List<Jugador>));
-            List<Jugador> lst = (List<Jugador>)ser.ReadObject(stream1);
-            return lst;
+            try
+            {
+                MemoryStream stream1 = new MemoryStream(Encoding.UTF8.GetBytes(json));
+                DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(List<Jugador>));
+                List<Jugador> lst = (List<Jugador>)ser.ReadObject(stream1);
+                return lst;
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
         }
 
         public string AddJugador(Jugador jugador)
         {
-            Console.WriteLine("Fue llamada la funcion AddJugador en Capa de Datos");
-            NameValueCollection parametros = mapping(jugador);
-            string result = WebApiHelper.Post("http://uba-cai.azurewebsites.net/api/jugador/" + jugador.IdUsuario.ToString(), parametros);
-            Console.WriteLine("El llamado a la API devolvio:");
-            Console.WriteLine(result);
-            return result;
+            try
+            {
+                NameValueCollection parametros = mapping(jugador);
+                string result = WebApiHelper.Post("http://uba-cai.azurewebsites.net/api/jugador/" + jugador.IdUsuario.ToString(), parametros);
+                return result;
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
         }
 
+        public string Delete(string registro, string idJugador)
+        {
+            try
+            {
+                return WebApiHelper.Get("http://uba-cai.azurewebsites.net/api/Jugador/Delete?codigo=" + idJugador.ToString() + "&registro=" + registro);
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
+        }
         private NameValueCollection mapping(Jugador jugador)
         {
             NameValueCollection valores = new NameValueCollection();
@@ -49,11 +79,5 @@ namespace Arquitectura4Capas.Datos
             return valores;
         }
 
-        public string Delete(string registro, string idJugador)
-        {
-            // trae un texto en formato json de una web
-            string resultado = WebApiHelper.Get("http://uba-cai.azurewebsites.net/api/Jugador/Delete?codigo=" + idJugador.ToString() + "&registro=" + registro);
-            return resultado;
-        }
     }
 }

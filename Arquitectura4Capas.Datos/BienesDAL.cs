@@ -14,25 +14,45 @@ namespace Arquitectura4Capas.Datos
     {
         public List<Bien> getBienesByID(int codigoJugador)
         {
-            string json2 = WebApiHelper.Get("http://uba-cai.azurewebsites.net/api/Bienes/" + codigoJugador.ToString());
-            List<Bien> resultado = MapObj(json2);
-            return resultado;
+            try
+            {
+                string json2 = WebApiHelper.Get("http://uba-cai.azurewebsites.net/api/Bienes/" + codigoJugador.ToString());
+                List<Bien> resultado = MapObj(json2);
+                return resultado;
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
         }
         private List<Bien> MapObj(string json)
         {
-            MemoryStream stream1 = new MemoryStream(Encoding.UTF8.GetBytes(json));
-            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(List<Bien>));
-            List<Bien> lst = (List<Bien>)ser.ReadObject(stream1);
-            return lst;
+            try
+            {
+                MemoryStream stream1 = new MemoryStream(Encoding.UTF8.GetBytes(json));
+                DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(List<Bien>));
+                List<Bien> lst = (List<Bien>)ser.ReadObject(stream1);
+                return lst;
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
         }
 
         public string EnviarBien(Bien bien)
         {
-            NameValueCollection parametros = MappearADiccionario(bien);
+            try
+            {
+                NameValueCollection parametros = MappearADiccionario(bien);
+                string result = WebApiHelper.Post("http://uba-cai.azurewebsites.net/api/bienes/" + bien.IdJugador.ToString(), parametros);
+                return result;
+            }
+            catch (System.Exception)
+            {
 
-            string result = WebApiHelper.Post("http://uba-cai.azurewebsites.net/api/bienes/" + bien.IdJugador.ToString(), parametros);
-
-            return result;
+                throw;
+            }
         }
 
         private NameValueCollection MappearADiccionario(Bien bien)

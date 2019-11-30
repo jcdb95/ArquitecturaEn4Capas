@@ -21,13 +21,13 @@ namespace Arquitectura4Capas.Negocio
         //Post de jugador
         public string SendJugador(Jugador j)
         {
-            Console.WriteLine("Fue llamada la funcion SendJugador en Capa de Negocio");
             return mapperJugador.AddJugador(j);
         }
         // Delete de
-        public void DeleteJugador(string idUsuario, string id)
+        public string DeleteJugador(string idUsuario, string id)
         {
-            mapperJugador.Delete(idUsuario, id);
+            return mapperJugador.Delete(idUsuario, id);
         }
+
     }
 }

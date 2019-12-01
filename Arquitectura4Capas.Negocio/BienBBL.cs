@@ -12,11 +12,9 @@ namespace Arquitectura4Capas.Negocio
     {
         BienesMapper mapper = new BienesMapper();
 
-        public List<Bien> getAllBienes(Jugador j)
+        public List<Bien> getAllBienes(int idJugador)
         {
-            List<Bien> lista = mapper.getBienesByID(j.Id);
-            j.Bienes = lista;
-            return lista;
+            return mapper.getBienesByID(idJugador);
         }
 
         public string EnviarBien(Bien bien)

@@ -61,9 +61,9 @@ namespace Arquitectura4Capas.Datos
             valores["Id"] = bien.Id.ToString();
             valores["IdTipo"] = bien.IdTipo.ToString();
             valores["IdJugador"] = bien.IdJugador.ToString();
-            valores["Nombre"] = bien.Nombre;
-            valores["Precio"] = bien.Precio.ToString();
-            valores["Fecha"] = bien.Fecha.ToString();
+            valores["nombre"] = bien.Nombre;
+            valores["precio"] = bien.Precio.ToString();
+            valores["fecha"] = bien.Fecha.ToString();
             return valores;
         }
     }

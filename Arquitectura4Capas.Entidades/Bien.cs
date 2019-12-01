@@ -14,11 +14,11 @@ namespace Arquitectura4Capas.Entidades
         public int IdTipo { get { return _idUsuario; } set { _idUsuario = value; } }
         [DataMember]
         public int IdJugador { get { return _idJugador; } set { _idJugador = value; } }
-        [DataMember]
+        [DataMember(Name = "nombre")]
         public string Nombre { get { return _nombreJugador; } set { _nombreJugador = value; } }
-        [DataMember]
+        [DataMember(Name = "precio")]
         public double Precio { get { return _precio; } set { _precio = value; } }
-        [DataMember]
+        [DataMember(Name = "fecha")]
         public string Fecha { get { return _fecha; } set { _fecha = value; } }
 
         public Bien(int Id, int IdTipo, int IdJugador, string Nombre, double Precio, string Fecha)

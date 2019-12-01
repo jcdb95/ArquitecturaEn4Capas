@@ -10,7 +10,8 @@ namespace Arquitectura4Capas.Entidades
     {
         Listar_jugadores = 1,
         Crear_jugador,
-        Eliminar_jugador
+        Eliminar_jugador,
+        Cargar_bienes
 
     }
 }

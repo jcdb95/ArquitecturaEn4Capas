@@ -5,13 +5,12 @@ using Arquitectura4Capas.Negocio;
 
 namespace Arquitectura4Capas.Presentacion
 {
-    public static class auxMethods
+    public static class userMethods
     {
         // Inicio al usuario con el que voy a listar, crear o eliminar jugadores
         public static Usuario iniciarUsuario()
         {
             Console.WriteLine("Hola! ingresa tu numero de registro:");
-
             string idUsuarioString = Console.ReadLine();
             int idUsuario;
             UsuarioBBL serivicioUsuario = new UsuarioBBL();
@@ -26,12 +25,22 @@ namespace Arquitectura4Capas.Presentacion
         }
 
         // listado de las opciones principales
-        public static string listOpciones()
+        public static string listOpciones(Boolean isBienes)
         {
             Console.WriteLine("De estas opciones:");
-            foreach (TipoConsultaEnum e in Enum.GetValues(typeof(TipoConsultaEnum)))
+            if (!isBienes)
             {
-                Console.WriteLine("{1} - {0}", e, (int)e);
+                foreach (TipoConsultaEnum e in Enum.GetValues(typeof(TipoConsultaEnum)))
+                {
+                    Console.WriteLine("{1} - {0}", e, (int)e);
+                }
+            }
+            else
+            {
+                foreach (TipoConsultaBienes e in Enum.GetValues(typeof(TipoConsultaBienes)))
+                {
+                    Console.WriteLine("{1} - {0}", e, (int)e);
+                }
             }
             Console.WriteLine("Que te gustaria hacer? (ingresa solo el numero de la opcion)");
             string opcionSeleccionada = Console.ReadLine();
@@ -62,9 +71,13 @@ namespace Arquitectura4Capas.Presentacion
                     Console.WriteLine("Elegiste eliminar un jugador");
                     deleteJugador(u);
                     break;
+                case "4":
+                    Console.WriteLine("Elegiste trabajar con bienes");
+                    bienesMethods.returnOpciones(listOpciones(true), u);
+                    break;
                 default:
                     Console.WriteLine("Mmm opcion incorrecta, vamos de nuevo");
-                    listOpciones();
+                    listOpciones(false);
                     break;
             }
         }
@@ -99,17 +112,17 @@ namespace Arquitectura4Capas.Presentacion
             string apellidoJugador = Console.ReadLine();
             Console.WriteLine("Fuerza (entre 1 y 10):");
             string fuerzaJugador = Console.ReadLine();
-            Console.WriteLine("Angulo:");
+            Console.WriteLine("Angulo (entre 0 y 90):");
             string anguloJugador = Console.ReadLine();
             try
             {
                 Jugador jugadorNuevo = new Jugador(1, u.Codigo, nombreJugador, apellidoJugador, Int32.Parse(fuerzaJugador), Int32.Parse(anguloJugador));
-                servicioBitacora.enviarPost(new Bitacora(u.Codigo, "Se creo un jugador", TipoConsultaEnum.Crear_jugador));
                 string rtaServer = servicioJugador.SendJugador(jugadorNuevo);
                 if (rtaServer == "\"OK\"")
                 {
+                    servicioBitacora.enviarPost(new Bitacora(u.Codigo, "Se creo un jugador", TipoConsultaEnum.Crear_jugador));
                     Console.WriteLine("Jugador creado con exito! Con que seguimos?");
-                    listOpciones();
+                    listOpciones(false);
                 }
                 else
                 {
@@ -134,11 +147,11 @@ namespace Arquitectura4Capas.Presentacion
             string idJugadorToDelete = Console.ReadLine();
             try
             {
-                servicioBitacora.enviarPost(new Bitacora(u.Codigo, "Se creo un jugador", TipoConsultaEnum.Crear_jugador));
                 string rtaServer = servicioJugador.DeleteJugador(u.Codigo.ToString(), idJugadorToDelete);
                 Console.WriteLine(rtaServer);
                 if (rtaServer == "\"OK\"")
                 {
+                    servicioBitacora.enviarPost(new Bitacora(u.Codigo, "Se elimino un jugador", TipoConsultaEnum.Eliminar_jugador));
                     Console.WriteLine("Jugador eliminado con exito!");
                 }
                 else

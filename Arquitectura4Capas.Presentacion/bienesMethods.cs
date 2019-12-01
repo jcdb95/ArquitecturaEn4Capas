@@ -49,22 +49,29 @@ namespace Arquitectura4Capas.Presentacion
             string bien = Console.ReadLine();
             Console.WriteLine("Que precio tiene?");
             string precio = Console.ReadLine();
-            if (bien != null && precio != null)
+            try
             {
-                Bien nuevoBien = new Bien(1, u.Codigo, Int32.Parse(idElegido), bien, Int32.Parse(precio), DateTime.Now.ToString("dd/mm/yyyy"));
-                BienBBL servicioBien = new BienBBL();
-                BitacoraBBL servicioBitacora = new BitacoraBBL();
-                string rtaServer = servicioBien.EnviarBien(nuevoBien);
-                if (rtaServer == "\"OK\"")
+                if (bien != null && precio != null)
                 {
-                    servicioBitacora.enviarPost(new Bitacora(u.Codigo, "Se creo un bien al jugador: " + idElegido, TipoConsultaEnum.Crear_jugador));
-                }
-                else
-                {
-                    Console.WriteLine("Ups! Hubo un error del server:" + rtaServer);
-                    AgregarBien(idElegido, u);
-                }
+                    Bien nuevoBien = new Bien(1, u.Codigo, Int32.Parse(idElegido), bien, Int32.Parse(precio), DateTime.Now.ToString("dd/mm/yyyy"));
+                    BienBBL servicioBien = new BienBBL();
+                    BitacoraBBL servicioBitacora = new BitacoraBBL();
+                    string rtaServer = servicioBien.EnviarBien(nuevoBien);
+                    if (rtaServer == "\"OK\"")
+                    {
+                        servicioBitacora.enviarPost(new Bitacora(u.Codigo, "Se creo un bien al jugador: " + idElegido, TipoConsultaEnum.Crear_jugador));
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ups! Hubo un error del server:" + rtaServer);
+                        AgregarBien(idElegido, u);
+                    }
 
+                }
+            }
+            catch (System.Exception)
+            {
+                throw;
             }
 
         }

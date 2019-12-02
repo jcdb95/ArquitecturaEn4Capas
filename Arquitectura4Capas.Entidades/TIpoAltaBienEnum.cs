@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace Arquitectura4Capas.Entidades
 {
-	public enum TipoConsultaEnum
+	public enum TipoAltaBienEnum
 	{
-
-		Salir = 0,
-		Listar_jugadores = 1,
-		Crear_jugador,
-		Eliminar_jugador,
-		Cargar_bienes
+		Casa = 1,
+		Auto,
+		Otros
 
 	}
 }

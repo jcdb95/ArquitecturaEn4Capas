@@ -15,13 +15,19 @@ namespace Arquitectura4Capas.Presentacion
 					Console.WriteLine("Los bienes de que jugador te gustaria mostrar? (Elegi solo el ID)");
 					userMethods.listJugadores(u, false);
 					string idElegido = Console.ReadLine();
-					listBienes(idElegido);
+					listBienes(idElegido, false, u);
 					break;
 				case "2":
-					Console.WriteLine("A que jugador le cargamos bienes?");
+					Console.WriteLine("A que jugador le cargamos bienes? Ingresa solo el ID");
 					userMethods.listJugadores(u, false);
 					string idElegidoParaBienes = Console.ReadLine();
 					AgregarBien(idElegidoParaBienes, u);
+					break;
+				case "3":
+					Console.WriteLine("A que jugador le borramos bienes? Ingresa solo el ID");
+					userMethods.listJugadores(u, false);
+					string idElegidoParaEliminarleBienes = Console.ReadLine();
+					DeleteBien(idElegidoParaEliminarleBienes, u);
 					break;
 				default:
 					Console.WriteLine("Tu opcion elegida fue incorrecta! Vamos de nuevo");
@@ -30,20 +36,41 @@ namespace Arquitectura4Capas.Presentacion
 			}
 		}
 
-		public static void listBienes(string id)
+		public static void listBienes(string id, Boolean justShowing, Usuario u)
 		{
 			BienBBL servicioBienes = new BienBBL();
 			JugadorBLL servicioJugador = new JugadorBLL();
 			// Aca voy a buscar ese jugador 
+			Console.WriteLine(servicioBienes.getAllBienes(Int32.Parse(id)).Capacity);
 			List<Bien> lst = servicioBienes.getAllBienes(Int32.Parse(id));
 			Console.WriteLine("Los bienes del jugador " + id + " son:");
-			foreach (var item in lst)
+			if (lst.Capacity > 0 && !justShowing)
 			{
-				Console.WriteLine("- " + item.Nombre + " - $" + item.Precio.ToString());
+				foreach (var item in lst)
+				{
+					Console.WriteLine("- " + item.Id + " - " + item.Nombre + " - $" + item.Precio.ToString());
+				}
+				Console.WriteLine("\n");
+				Console.WriteLine("Esos fueron los Bienes del jugador con que seguimos?");
+				userMethods.listOpciones(false);
+				userMethods.returnOpciones(userMethods.listOpciones(false), u);
 			}
-			Console.WriteLine("\n");
-			Console.WriteLine("Esos fueron los vienes del jugador con que seguimos?");
-			userMethods.listOpciones(false);
+			else if (lst.Capacity > 0 && justShowing)
+			{
+				foreach (var item in lst)
+				{
+					Console.WriteLine("- " + item.Id + " - " + item.Nombre + " - $" + item.Precio.ToString());
+				}
+				userMethods.returnOpciones(userMethods.listOpciones(false), u);
+
+			}
+			else
+			{
+				Console.WriteLine("\n");
+				Console.WriteLine("MM parece que el jugador no tiene bienes ¯|_(ツ)_|¯ ");
+				userMethods.returnOpciones(userMethods.listOpciones(false), u);
+
+			}
 		}
 
 		public static void AgregarBien(string idElegido, Usuario u)
@@ -63,12 +90,13 @@ namespace Arquitectura4Capas.Presentacion
 				{
 					Bien nuevoBien = new Bien(1, devolverTipo(bien), Int32.Parse(idElegido), bien, Int32.Parse(precio), DateTime.Now.ToString("dd/mm/yyyy"));
 					BienBBL servicioBien = new BienBBL();
-					BitacoraBBL servicioBitacora = new BitacoraBBL();
 					string rtaServer = servicioBien.EnviarBien(nuevoBien);
 					if (rtaServer == "\"OK\"")
 					{
+						BitacoraBBL servicioBitacora = new BitacoraBBL();
 						servicioBitacora.enviarPost(new Bitacora(u.Codigo, "Se creo un bien al jugador: " + idElegido, TipoConsultaEnum.Crear_jugador));
-						userMethods.listOpciones(false);
+						Console.WriteLine("Se creo el bien: " + bien + " por: $" + precio + " - Con exito!");
+						userMethods.returnOpciones(userMethods.listOpciones(false), u);
 					}
 					else
 					{
@@ -83,11 +111,46 @@ namespace Arquitectura4Capas.Presentacion
 					AgregarBien(idElegido, u);
 				}
 			}
-			catch (System.Exception)
+			catch (System.Exception e)
 			{
-				throw;
+				Console.WriteLine("Hubo un error en el server:" + e.ToString());
 			}
 
+		}
+
+		public static void DeleteBien(string idJugador, Usuario u)
+		{
+			Console.WriteLine("Okey, vamos a eliminar algunos bienes!");
+			Console.WriteLine("De estos bienes cual eliminamos? Ingresa solo el ID:");
+			listBienes(idJugador, true, u);
+			Console.WriteLine("\n");
+			Console.WriteLine("ID:");
+			string idBien = Console.ReadLine();
+
+			try
+			{
+				BienBBL servicioBien = new BienBBL();
+				string rtaServer = servicioBien.DeleteBien(idBien, u.Codigo.ToString(), idJugador);
+				if (rtaServer == "\"OK\"")
+				{
+					BitacoraBBL servicioBitacora = new BitacoraBBL();
+					servicioBitacora.enviarPost(new Bitacora(u.Codigo, "Se elimino el bien: " + idBien, TipoConsultaEnum.Trabajar_con_bienes));
+					Console.WriteLine("El bien " + idBien + " Se elimino con exito!");
+					userMethods.returnOpciones(userMethods.listOpciones(false), u);
+
+				}
+				else
+				{
+					Console.WriteLine("Ups! Hubo un error del server:" + rtaServer);
+					DeleteBien(idJugador, u);
+				}
+
+			}
+			catch (System.Exception e)
+			{
+				Console.WriteLine("Hubo un error:" + e.ToString());
+				userMethods.returnOpciones(userMethods.listOpciones(false), u);
+			}
 		}
 
 		public static int devolverTipo(string bienACargar)

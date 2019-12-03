@@ -1,8 +1,10 @@
 namespace Arquitectura4Capas.Entidades
 {
-    public enum TipoConsultaBienes
-    {
-        listar_bienes = 1,
-        cargar_bienes,
-    }
+	public enum TipoConsultaBienes
+	{
+		Listar_bienes = 1,
+		Cargar_bienes,
+		Eliminar_bienes
+
+	}
 }

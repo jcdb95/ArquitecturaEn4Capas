@@ -8,20 +8,25 @@ using Arquitectura4Capas.Datos;
 
 namespace Arquitectura4Capas.Negocio
 {
-    public class BienBBL
-    {
-        BienesMapper mapper = new BienesMapper();
+	public class BienBBL
+	{
+		BienesMapper mapperBienes = new BienesMapper();
 
-        public List<Bien> getAllBienes(int idJugador)
-        {
-            return mapper.getBienesByID(idJugador);
-        }
+		public List<Bien> getAllBienes(int idJugador)
+		{
+			return mapperBienes.getBienesByID(idJugador);
+		}
 
-        public string EnviarBien(Bien bien)
-        {
-            string result;
-            result = mapper.EnviarBien(bien);
-            return result;
-        }
-    }
+		public string EnviarBien(Bien bien)
+		{
+			string result;
+			result = mapperBienes.EnviarBien(bien);
+			return result;
+		}
+
+		public string DeleteBien(string idBien, string idUsuario, string idJugador)
+		{
+			return mapperBienes.Delete(idBien, idUsuario, idJugador);
+		}
+	}
 }

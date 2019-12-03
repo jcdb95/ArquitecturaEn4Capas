@@ -11,8 +11,7 @@ namespace Arquitectura4Capas.Presentacion
 		static void Main(string[] args)
 		{
 			Usuario user = userMethods.iniciarUsuario();
-			string opcionElegida = userMethods.listOpciones(false);
-			userMethods.returnOpciones(opcionElegida, user);
+			userMethods.returnOpciones(userMethods.listOpciones(false), user);
 			Console.ReadKey();
 		}
 	}

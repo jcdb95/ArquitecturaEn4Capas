@@ -62,10 +62,12 @@ namespace Arquitectura4Capas.Presentacion
 				case "1":
 					Console.WriteLine("Elegiste listar jugadores");
 					listJugadores(u, true);
+
 					break;
 				case "2":
 					Console.WriteLine("Elegiste crear un jugador");
 					createJugador(u);
+					returnOpciones(listOpciones(false), u);
 					break;
 				case "3":
 					Console.WriteLine("Elegiste eliminar un jugador");
@@ -73,6 +75,10 @@ namespace Arquitectura4Capas.Presentacion
 					break;
 				case "4":
 					Console.WriteLine("Elegiste trabajar con bienes");
+					bienesMethods.returnOpciones(listOpciones(true), u);
+					break;
+				case "5":
+					Console.WriteLine("Elegiste eliminar bienes");
 					bienesMethods.returnOpciones(listOpciones(true), u);
 					break;
 				case "0":
@@ -103,6 +109,7 @@ namespace Arquitectura4Capas.Presentacion
 					Console.WriteLine("ID:{0} - Nombre: {1} - Apellido: {2}", jugador.Id, jugador.Nombre, jugador.Apellido);
 				}
 			}
+			returnOpciones(listOpciones(false), u);
 		}
 
 		// Funcion que crea a los jugadores
@@ -127,7 +134,7 @@ namespace Arquitectura4Capas.Presentacion
 				{
 					servicioBitacora.enviarPost(new Bitacora(u.Codigo, "Se creo un jugador", TipoConsultaEnum.Crear_jugador));
 					Console.WriteLine("Jugador creado con exito! Con que seguimos?");
-					listOpciones(false);
+					returnOpciones(listOpciones(false), u);
 				}
 				else
 				{
@@ -135,9 +142,9 @@ namespace Arquitectura4Capas.Presentacion
 					createJugador(u);
 				}
 			}
-			catch (System.Exception)
+			catch (System.Exception e)
 			{
-				throw;
+				Console.WriteLine("Hubo un error en el server:" + e.ToString());
 			}
 		}
 
@@ -158,6 +165,7 @@ namespace Arquitectura4Capas.Presentacion
 				{
 					servicioBitacora.enviarPost(new Bitacora(u.Codigo, "Se elimino un jugador", TipoConsultaEnum.Eliminar_jugador));
 					Console.WriteLine("Jugador eliminado con exito!");
+					returnOpciones(listOpciones(false), u);
 				}
 				else
 				{
@@ -165,10 +173,11 @@ namespace Arquitectura4Capas.Presentacion
 					deleteJugador(u);
 				}
 			}
-			catch (System.Exception)
+			catch (System.Exception e)
 			{
+				Console.WriteLine("Hubo un error en el server:" + e.ToString());
+				returnOpciones(listOpciones(false), u);
 
-				throw;
 			}
 		}
 

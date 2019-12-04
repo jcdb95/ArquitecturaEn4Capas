@@ -12,10 +12,15 @@ namespace Arquitectura4Capas.Negocio
     public class JugadorBLL
     {
         JugadorDAL mapperJugador = new JugadorDAL();
+        BienesMapper mapperBienes = new BienesMapper();
         // Get de jugador
         public List<Jugador> GetJugador(int id)
         {
             List<Jugador> lst = mapperJugador.GetJugadores(id);
+            foreach (var jugador in lst)
+            {
+                jugador.Bienes = mapperBienes.getBienesByID(jugador.Id);
+            }
             return lst;
         }
         //Post de jugador

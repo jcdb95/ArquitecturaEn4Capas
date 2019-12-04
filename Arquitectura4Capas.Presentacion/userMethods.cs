@@ -110,7 +110,6 @@ namespace Arquitectura4Capas.Presentacion
                 }
             }
             if (!forBienes && !deletingPlayers) checkIfContinue(u);
-            // checkIfContinue(u);
         }
 
         public static void checkIfContinue(Usuario u)

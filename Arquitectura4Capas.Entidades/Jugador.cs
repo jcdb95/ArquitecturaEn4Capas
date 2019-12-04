@@ -29,7 +29,6 @@ namespace Arquitectura4Capas.Entidades
         [DataMember]
         public double Angulo { get { return _angulo; } set { _angulo = value; } }
 
-        [DataMember]
         public List<Bien> Bienes { get { return _bienes; } set { _bienes = value; } }
 
         public Jugador(int id, int usuario, string nombre, string apellido, double fuerza, double ang)

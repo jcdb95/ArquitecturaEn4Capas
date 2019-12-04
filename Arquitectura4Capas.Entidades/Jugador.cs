@@ -48,5 +48,14 @@ namespace Arquitectura4Capas.Entidades
             }
             _angulo = ang;
         }
+
+        public override string ToString()
+        {
+            return Nombre + " - " + Apellido;
+        }
+        public void ToStringWithId()
+        {
+            Console.WriteLine(Id + " - " + Nombre + " - " + Apellido);
+        }
     }
 }
